@@ -40,7 +40,7 @@ export const NewCategoryForm = () => {
       contentLabel="New Product"
       handleClose={handleClose}
     >
-      <div className="bg-white p-12 pb-6 rounded-lg shadow-lg w-full">
+      <div className="forms__new-category-form bg-white p-12 pb-6 rounded-lg shadow-lg w-full">
         <h2 className="text-2xl text-center font-bold mb-6">
           Create a new Category
         </h2>

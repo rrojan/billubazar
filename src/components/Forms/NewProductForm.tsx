@@ -52,7 +52,7 @@ export const NewProductForm = () => {
       contentLabel="New Product"
       handleClose={handleClose}
     >
-      <div className="bg-white p-6 rounded-lg shadow-lg">
+      <div className="forms__new-product-form bg-white p-6 rounded-lg shadow-lg">
         <h2 className="text-2xl text-center font-bold mb-6">
           Post a New Product
         </h2>
