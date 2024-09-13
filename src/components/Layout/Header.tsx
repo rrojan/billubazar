@@ -1,6 +1,7 @@
-import Image from "next/image"
-import { NewProductBtn } from "../Buttons/NewProductBtn"
 import { SignedIn, SignedOut, SignInButton, SignOutButton } from "@clerk/nextjs"
+import Image from "next/image"
+import { Btn } from "~/components/Buttons/Btn"
+import { NewProductBtn } from "~/components/Buttons/NewProductBtn"
 
 export const Header = () => {
   return (
@@ -17,9 +18,7 @@ export const Header = () => {
       </h1>
       <SignedOut>
         <SignInButton mode="modal">
-          <button className="bg-black text-white py-2 px-4 rounded hover:scale-[1.03] hover:shadow-md">
-            Login
-          </button>
+          <Btn>Login</Btn>
         </SignInButton>
       </SignedOut>
       <SignedIn>
