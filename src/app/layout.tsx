@@ -1,5 +1,6 @@
-import type { Metadata } from "next"
 import { ClerkProvider } from "@clerk/nextjs"
+import { SpeedInsights } from "@vercel/speed-insights/next"
+import type { Metadata } from "next"
 import { ModalProvider } from "~/components/Context/ModalContext"
 import { Header } from "~/components/Layout/Header"
 import { Sidebar } from "~/components/Layout/Sidebar"
@@ -30,6 +31,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="antialiased">
+        <SpeedInsights />
         <ClerkProvider
           // Can't be bothered to set up proper oauth. Don't do this in production.
           appearance={{
