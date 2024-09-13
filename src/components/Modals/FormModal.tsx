@@ -30,7 +30,10 @@ export const FormModal = ({
       onRequestClose={handleClose || closeModal}
       shouldCloseOnOverlayClick={true} // modal closes on background click
       contentLabel={contentLabel}
-      className={cn("modals__form-modal w-1/3 flex justify-center", className)}
+      className={cn(
+        "modals__form-modal w-8/10 sm:w-1/3 md:w-1/2 lg:w-1/3 flex justify-center",
+        className,
+      )}
       overlayClassName="flex justify-center fixed inset-0 bg-gray-600 bg-opacity-50 flex items-center justify-center"
     >
       {children}

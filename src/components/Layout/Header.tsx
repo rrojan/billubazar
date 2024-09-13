@@ -5,7 +5,7 @@ import { NewProductBtn } from "~/components/Buttons/NewProductBtn"
 
 export const Header = () => {
   return (
-    <header className="layout__header flex justify-between items-center mb-4">
+    <header className="layout__header flex flex-col sm:flex-row justify-between items-center mb-4">
       <h1 className="text-xl font-bold flex items-center">
         <Image
           alt="Banner lol"
@@ -16,21 +16,23 @@ export const Header = () => {
         />
         BilluBazar
       </h1>
-      <SignedOut>
-        <SignInButton mode="modal">
-          <Btn className="w-auto py-2 px-4">Login</Btn>
-        </SignInButton>
-      </SignedOut>
-      <SignedIn>
-        <div className="flex gap-4">
-          <SignOutButton>
-            <button className="bg-white text-black border-[1px] border-black py-2 px-4 rounded">
-              Sign out
-            </button>
-          </SignOutButton>
-          <NewProductBtn />
-        </div>
-      </SignedIn>
+      <div>
+        <SignedOut>
+          <SignInButton mode="modal">
+            <Btn className="w-auto py-2 px-4">Login</Btn>
+          </SignInButton>
+        </SignedOut>
+        <SignedIn>
+          <div className="flex gap-1 sm:gap-4">
+            <SignOutButton>
+              <Btn className="w-[100px]" variant="secondary">
+                Sign out
+              </Btn>
+            </SignOutButton>
+            <NewProductBtn />
+          </div>
+        </SignedIn>
+      </div>
     </header>
   )
 }

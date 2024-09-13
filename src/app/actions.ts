@@ -24,6 +24,7 @@ export const createProduct = async (formData: FormData) => {
         price: z.number().parse(+z.string().parse(formData.get("price"))),
         address: z.string().parse(formData.get("address")),
         imgUrl: blob.url,
+        categoryId: z.string().parse(formData.get("category")),
       },
     })
   } catch (e: unknown) {

@@ -35,7 +35,7 @@ export const NewCategoryForm = () => {
         <form ref={formRef} onSubmit={handleSubmit} className="space-y-4">
           <input
             type="text"
-            name="name"
+            name="title"
             placeholder="Category Name"
             className="w-full p-2 border rounded-lg mb-2"
             required

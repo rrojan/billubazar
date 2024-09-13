@@ -1,12 +1,19 @@
 "use client"
 
+import { Category } from "@prisma/client"
 import { FormEvent, useRef } from "react"
 import { createProduct } from "~/app/actions"
 import { Btn } from "~/components/Buttons/Btn"
 import { FormModal } from "~/components/Modals/FormModal"
 import { useModal } from "~/hooks/useModal"
 
-export const NewProductForm = () => {
+interface NewProductClientFormProps {
+  categories: Category[]
+}
+
+export const NewProductClientForm = ({
+  categories,
+}: NewProductClientFormProps) => {
   const { closeModal } = useModal()
   const formRef = useRef<HTMLFormElement>(null)
 
@@ -78,6 +85,22 @@ export const NewProductForm = () => {
             className="w-full p-2 border rounded-lg"
             required
           />
+
+          <select
+            id="category"
+            name="category"
+            className="w-full p-2 mt-1 border rounded-lg bg-white text-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-500"
+            required
+          >
+            <option value="" defaultChecked hidden>
+              Select Category
+            </option>
+            {categories.map((category) => (
+              <option key={category.id} value={category.id}>
+                {category.title}
+              </option>
+            ))}
+          </select>
 
           <small className="block ml-1 pt-4 text-gray-600">Thumbnail:</small>
           <input
