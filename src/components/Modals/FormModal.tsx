@@ -4,17 +4,20 @@ import { PropsWithChildren } from "react"
 import Modal from "react-modal"
 import { useModal } from "~/hooks/useModal"
 import { ModalState } from "~/components/Context/types"
+import { cn } from "~/utils/tailwind"
 
 interface FormModalProps extends PropsWithChildren {
   type: ModalState
   contentLabel: string
   handleClose?: () => unknown
+  className?: string
 }
 
 export const FormModal = ({
   type,
   contentLabel,
   handleClose,
+  className,
   children,
 }: FormModalProps) => {
   const { openModal, closeModal } = useModal()
@@ -27,7 +30,7 @@ export const FormModal = ({
       onRequestClose={handleClose || closeModal}
       shouldCloseOnOverlayClick={true} // modal closes on background click
       contentLabel={contentLabel}
-      className="w-1/3 flex justify-center"
+      className={cn("modals__form-modal w-1/3 flex justify-center", className)}
       overlayClassName="flex justify-center fixed inset-0 bg-gray-600 bg-opacity-50 flex items-center justify-center"
     >
       {children}
