@@ -1,77 +1,50 @@
 "use client"
 
-import { ChangeEvent, FormEvent, useState } from "react"
+import { FormEvent, useRef } from "react"
+import { createProduct } from "~/app/actions"
+import { Btn } from "~/components/Buttons/Btn"
 import { FormModal } from "~/components/Modals/FormModal"
 import { useModal } from "~/hooks/useModal"
-import { Btn } from "../Buttons/Btn"
-
-interface FormData {
-  name: string
-  description: string
-  address: string
-  price: string
-  sellerName: string
-}
 
 export const NewProductForm = () => {
   const { closeModal } = useModal()
-  const [formData, setFormData] = useState<FormData>({
-    name: "",
-    description: "",
-    address: "",
-    price: "",
-    sellerName: "",
-  })
+  const formRef = useRef<HTMLFormElement>(null)
 
-  const handleChange = (
-    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
-  ) => {
-    const { name, value } = e.target
-    setFormData({ ...formData, [name]: value })
-  }
-
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    handleClose()
-  }
 
-  const handleClose = () => {
-    setFormData({
-      name: "",
-      description: "",
-      address: "",
-      price: "",
-      sellerName: "",
-    })
-    closeModal()
+    if (formRef.current) {
+      const formData = new FormData(formRef.current)
+      // Call the server action (directly from client component!)
+      await createProduct(formData)
+      // Close the modal after submission
+      closeModal()
+    }
   }
 
   return (
     <FormModal
       type="product"
       contentLabel="New Product"
-      handleClose={handleClose}
+      handleClose={closeModal}
     >
       <div className="forms__new-product-form bg-white p-6 rounded-lg shadow-lg">
         <h2 className="text-2xl text-center font-bold mb-6">
           Post a New Product
         </h2>
-        <form onSubmit={handleSubmit} className="space-y-4">
+        {/* Use onSubmit to handle form submission instead of action, since we also need client side code to close the modal */}
+        <form ref={formRef} onSubmit={handleSubmit} className="space-y-4">
           <input
             type="text"
-            name="name"
+            name="title"
             placeholder="Item Name"
-            value={formData.name}
-            onChange={handleChange}
             className="w-full p-2 border rounded-lg"
             required
           />
           <textarea
             name="description"
             placeholder="Item Description"
-            value={formData.description}
             rows={5}
-            onChange={handleChange}
             className="w-full p-2 border rounded-lg"
             required
           />
@@ -82,8 +55,6 @@ export const NewProductForm = () => {
               type="text"
               name="address"
               placeholder="Address"
-              value={formData.address}
-              onChange={handleChange}
               className="w-full p-2 border rounded-lg"
               required
             />
@@ -94,8 +65,6 @@ export const NewProductForm = () => {
                 type="number"
                 name="price"
                 placeholder="Price"
-                value={formData.price}
-                onChange={handleChange}
                 className="w-full p-2 border-none outline-none"
                 required
               />
@@ -104,17 +73,31 @@ export const NewProductForm = () => {
 
           <input
             type="text"
-            name="sellerName"
+            name="seller"
             placeholder="Seller Name"
-            value={formData.sellerName}
-            onChange={handleChange}
             className="w-full p-2 border rounded-lg"
             required
           />
 
+          <small className="block ml-1 pt-4 text-gray-600">Thumbnail:</small>
+          <input
+            name="img"
+            type="file"
+            className="block mt-2 w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer focus:outline-none p-2"
+            required
+          />
+          <p
+            className="ml-2 text-sm text-gray-500 dark:text-gray-300"
+            id="file_input_help"
+          >
+            SVG, PNG, JPG, JPEG or GIF (MAX. 5MB).
+          </p>
+
           {/* Buttons */}
           <div className="flex justify-between mt-4 space-x-4">
-            <Btn variant="secondary">Cancel</Btn>
+            <Btn variant="secondary" handleClick={closeModal}>
+              Cancel
+            </Btn>
             <Btn type="submit">Post Item</Btn>
           </div>
         </form>
