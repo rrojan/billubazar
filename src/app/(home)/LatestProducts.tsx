@@ -7,6 +7,7 @@ export const LatestProducts = async () => {
   const latestProducts = await db.product.findMany({
     orderBy: { createdAt: "desc" },
   })
+
   return (
     <div className="home__latest-products mb-12">
       <SectionHeading>Latest Products</SectionHeading>

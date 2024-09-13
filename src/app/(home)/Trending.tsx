@@ -8,6 +8,7 @@ export const Trending = async () => {
     orderBy: { createdAt: "asc" },
     take: 4,
   })
+
   return (
     <div className="home__trending mb-16">
       <SectionHeading>Trending</SectionHeading>
