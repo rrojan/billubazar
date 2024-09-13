@@ -18,7 +18,7 @@ export const Header = () => {
       </h1>
       <SignedOut>
         <SignInButton mode="modal">
-          <Btn>Login</Btn>
+          <Btn className="w-auto py-2 px-4">Login</Btn>
         </SignInButton>
       </SignedOut>
       <SignedIn>

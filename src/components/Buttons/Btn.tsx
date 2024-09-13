@@ -7,12 +7,14 @@ interface BtnProps extends PropsWithChildren {
   variant?: BtnVariant
   type?: "submit" | "button"
   handleClick?: () => unknown
+  className?: string
 }
 
 export const Btn = ({
   variant = "primary",
   type = "button",
   handleClick,
+  className,
   children,
 }: BtnProps) => {
   const btnClassNames: Record<BtnVariant, string> = {
@@ -24,7 +26,11 @@ export const Btn = ({
 
   return (
     <button
-      className={cn(`buttons__btn--${variant}`, btnClassNames[variant])}
+      className={cn(
+        `buttons__btn--${variant}`,
+        btnClassNames[variant],
+        className,
+      )}
       type={type}
       onClick={handleClick}
     >
