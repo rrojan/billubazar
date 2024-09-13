@@ -1,4 +1,5 @@
 import { PropsWithChildren } from "react"
+import { cn } from "~/utils/tailwind"
 
 type BtnVariant = "primary" | "secondary"
 
@@ -23,7 +24,7 @@ export const Btn = ({
 
   return (
     <button
-      className={btnClassNames[variant]}
+      className={cn(`buttons__btn--${variant}`, btnClassNames[variant])}
       type={type}
       onClick={handleClick}
     >

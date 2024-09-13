@@ -8,7 +8,7 @@ export const NewCategoryBtn = () => {
 
   return (
     <small
-      className="underline text-right text-gray-500 cursor-pointer"
+      className="buttons__new-cateogory-btn underline text-right text-gray-500 cursor-pointer"
       onClick={handleClick}
     >
       Add
