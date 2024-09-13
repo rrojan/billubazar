@@ -30,7 +30,6 @@ export const Btn = ({
         `buttons__btn--${variant}`,
         btnClassNames[variant],
         className,
-        "scale-75 sm:scale-100",
       )}
       type={type}
       onClick={handleClick}

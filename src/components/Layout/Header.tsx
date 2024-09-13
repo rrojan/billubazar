@@ -6,7 +6,7 @@ import { NewProductBtn } from "~/components/Buttons/NewProductBtn"
 export const Header = () => {
   return (
     <header className="layout__header flex flex-col sm:flex-row justify-between items-center mb-4">
-      <h1 className="text-xl font-bold flex items-center">
+      <h1 className="text-4xl sm:text-xl font-bold flex items-center mb-6 sm:mb-0">
         <Image
           alt="Banner lol"
           className="w-[60px] h-[60px] transition-transform duration-300 ease-in-out hover:scale-110 object-cover"
@@ -23,9 +23,12 @@ export const Header = () => {
           </SignInButton>
         </SignedOut>
         <SignedIn>
-          <div className="flex gap-1 sm:gap-4">
+          <div className="flex justify-center h-[50px] gap-4">
             <SignOutButton>
-              <Btn className="w-[100px]" variant="secondary">
+              <Btn
+                className="w-full min-w-[100px] sm:w-[100px]"
+                variant="secondary"
+              >
                 Sign out
               </Btn>
             </SignOutButton>
