@@ -1,5 +1,4 @@
 import TrendingCard from "~/components/Cards/TrendingCard"
-import { ProductDTO } from "~/types/dto"
 import { SectionHeading } from "./SectionHeading"
 import DBClient from "~/lib/db"
 
@@ -7,6 +6,7 @@ export const Trending = async () => {
   const db = DBClient.getInstance()
   const trendingProducts = await db.product.findMany({
     orderBy: { createdAt: "asc" },
+    take: 4,
   })
   return (
     <div className="home__trending mb-16">

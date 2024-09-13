@@ -1,5 +1,4 @@
 import ProductCard from "~/components/Cards/ProductCard"
-import { ProductDTO } from "~/types/dto"
 import { SectionHeading } from "./SectionHeading"
 import DBClient from "~/lib/db"
 
