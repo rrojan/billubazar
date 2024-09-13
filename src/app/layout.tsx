@@ -1,4 +1,5 @@
 import { ClerkProvider } from "@clerk/nextjs"
+import { Analytics } from "@vercel/analytics/react"
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import type { Metadata } from "next"
 import { ModalProvider } from "~/components/Context/ModalContext"
@@ -32,6 +33,7 @@ export default function RootLayout({
     <html lang="en">
       <body className="antialiased">
         <SpeedInsights />
+        <Analytics />
         <ClerkProvider
           // Can't be bothered to set up proper oauth. Don't do this in production.
           appearance={{
