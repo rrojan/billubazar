@@ -32,8 +32,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="antialiased">
-        <SpeedInsights />
-        <Analytics />
         <ClerkProvider
           // Can't be bothered to set up proper oauth. Don't do this in production.
           appearance={{
@@ -56,6 +54,8 @@ export default function RootLayout({
             </div>
           </ModalProvider>
         </ClerkProvider>
+        <SpeedInsights />
+        <Analytics />
       </body>
     </html>
   )
