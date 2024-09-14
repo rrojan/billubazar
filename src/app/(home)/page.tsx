@@ -4,13 +4,8 @@ import { Trending } from "~/app/(home)/Trending"
 import { NewCategoryForm } from "~/components/Forms/NewCategoryForm"
 import { NewProductForm } from "~/components/Forms/NewProductForm"
 import { DottedSeperator } from "~/components/Seperators/DottedSeperator"
-import DBClient from "~/lib/db"
 
 const HomePage = async () => {
-  const db = DBClient.getInstance()
-  const products = await db.product.findMany({})
-  console.log("products", products)
-
   return (
     <div className="page__home">
       <Hero />

@@ -21,6 +21,9 @@ export const Sidebar = async () => {
         </SignedIn>
       </div>
       <div className="flex flex-col gap-2">
+        {!categories.length && (
+          <div className="text-gray-500">No categories to show</div>
+        )}
         {categories.map((category) => (
           <CategoryBtn
             key={category.id}

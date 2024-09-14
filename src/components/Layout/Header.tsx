@@ -25,10 +25,7 @@ export const Header = () => {
         <SignedIn>
           <div className="flex justify-center h-[50px] gap-4">
             <SignOutButton>
-              <Btn
-                className="w-full min-w-[100px] sm:w-[100px]"
-                variant="secondary"
-              >
+              <Btn className="w-[130px]" variant="secondary">
                 Sign out
               </Btn>
             </SignOutButton>

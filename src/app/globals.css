@@ -8,6 +8,10 @@
   }
 }
 
+* {
+  box-sizing: border-box;
+}
+
 /* Form overrides */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {

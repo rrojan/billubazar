@@ -1,6 +1,7 @@
 import ProductCard from "~/components/Cards/ProductCard"
 import { SectionHeading } from "./SectionHeading"
 import DBClient from "~/lib/db"
+import { EmptyStateText } from "~/components/Typography/Extras/EmptyStateText"
 
 export const LatestProducts = async () => {
   const db = DBClient.getInstance()
@@ -11,6 +12,10 @@ export const LatestProducts = async () => {
   return (
     <div className="home__latest-products mb-12">
       <SectionHeading>Latest Products</SectionHeading>
+      {!latestProducts.length && (
+        <EmptyStateText>Products list is empty</EmptyStateText>
+      )}
+
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {latestProducts.map((product) => (
           <ProductCard
