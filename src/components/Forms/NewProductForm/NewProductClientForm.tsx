@@ -39,6 +39,7 @@ export const NewProductClientForm = ({
         <h2 className="text-2xl text-center font-bold mb-6">
           Post a New Product
         </h2>
+
         {/* Use onSubmit to handle form submission instead of action, since we also need client side code to close the modal */}
         <form ref={formRef} onSubmit={handleSubmit} className="space-y-4">
           <input
