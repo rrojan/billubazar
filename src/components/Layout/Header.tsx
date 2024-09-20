@@ -10,7 +10,7 @@ export const Header = () => {
         <h1 className="text-4xl sm:text-xl font-bold flex items-center mb-6 sm:mb-0">
           <Image
             alt="Banner lol"
-            className="w-[60px] h-[60px] transition-transform duration-300 ease-in-out hover:scale-110 object-cover"
+            className="w-[60px] h-[60px] object-cover"
             src="/images/logo.jpg"
             width={200}
             height={200}

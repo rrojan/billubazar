@@ -16,7 +16,9 @@ export const LatestProducts = async ({ categoryId }: LatestProductsProps) => {
 
   return (
     <div className="home__latest-products mb-12">
-      <SectionHeading id="latest-products">Latest Products</SectionHeading>
+      <SectionHeading id="latest-products">
+        {categoryId ? "Search Results" : "Latest Products"}
+      </SectionHeading>
       {!latestProducts.length && (
         <EmptyStateText>Products list is empty</EmptyStateText>
       )}

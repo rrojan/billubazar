@@ -12,6 +12,7 @@ export const Sidebar = async () => {
           <NewCategoryBtn />
         </SignedIn>
       </div>
+
       <Suspense
         fallback={<div className="text-gray-600">Loading categories...</div>}
       >

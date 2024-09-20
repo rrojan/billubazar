@@ -1,11 +1,19 @@
 "use server"
 
+import { auth } from "@clerk/nextjs/server"
+import { put } from "@vercel/blob"
 import { revalidatePath } from "next/cache"
+import { NextResponse } from "next/server"
 import { z } from "zod"
 import DBClient from "~/lib/db"
-import { put } from "@vercel/blob"
 
 export const createProduct = async (formData: FormData) => {
+  // TODO: move to actions middleware
+  const { userId } = auth()
+  if (!userId) {
+    return NextResponse.redirect("/")
+  }
+
   const db = DBClient.getInstance()
 
   // First upload img to bucked
@@ -34,6 +42,11 @@ export const createProduct = async (formData: FormData) => {
 }
 
 export const createCategory = async (formData: FormData) => {
+  const { userId } = auth()
+  if (!userId) {
+    return NextResponse.redirect("/")
+  }
+
   const db = DBClient.getInstance()
 
   // Create new product

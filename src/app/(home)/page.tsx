@@ -13,9 +13,11 @@ const HomePage = async ({ searchParams }: HomePageProps) => {
   const categoryId = searchParams?.categoryId
   return (
     <div className="page__home">
-      <Hero />
-      <DottedSeperator className="mb-8" />
-      <Trending />
+      <div className={categoryId ? "hidden" : "block"}>
+        <Hero />
+        <DottedSeperator className="mb-8" />
+        <Trending />
+      </div>
       <LatestProducts categoryId={categoryId} />
 
       <NewProductForm />
