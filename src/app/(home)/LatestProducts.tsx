@@ -23,10 +23,11 @@ export const LatestProducts = async ({ categoryId }: LatestProductsProps) => {
         <EmptyStateText>Products list is empty</EmptyStateText>
       )}
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {latestProducts.map((product) => (
           <ProductCard
             key={product.id}
+            id={product.id}
             image={product.imgUrl}
             title={product.title}
             price={product.price}

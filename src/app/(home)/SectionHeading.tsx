@@ -3,15 +3,21 @@ import { cn } from "~/utils/tailwind"
 
 interface SectionHeadingProps extends PropsWithChildren {
   id: string
+  className?: string
 }
 
-export const SectionHeading = ({ id, children }: SectionHeadingProps) => {
+export const SectionHeading = ({
+  id,
+  className,
+  children,
+}: SectionHeadingProps) => {
   return (
-    <div className="mb-4">
+    <div className="mb-6">
       <h2
         id={id}
         className={cn(
           "uppercase text-3xl text-gray-600 tracking-wide text-center",
+          className,
         )}
       >
         {children}

@@ -1,11 +1,20 @@
 "use client"
 
 import Image from "next/image"
+import Link from "next/link"
 import { GenericCardProps } from "~/components/Cards/types"
 
-export default function ProductCard({ image, title, price }: GenericCardProps) {
+export default function ProductCard({
+  id,
+  image,
+  title,
+  price,
+}: GenericCardProps) {
   return (
-    <div className="cards__product-card border rounded-lg overflow-hidden shadow-sm mb-4 cursor-pointer">
+    <Link
+      href={`/products/${id}`}
+      className="cards__product-card border rounded-lg overflow-hidden shadow-sm mb-4 cursor-pointer"
+    >
       <div className="overflow-hidden">
         <Image
           src={image}
@@ -19,6 +28,6 @@ export default function ProductCard({ image, title, price }: GenericCardProps) {
         <h3 className="text-md font-semibold">{title}</h3>
         <p className="text-sm text-gray-600">Rs. {price}</p>
       </div>
-    </div>
+    </Link>
   )
 }

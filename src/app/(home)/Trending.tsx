@@ -21,6 +21,7 @@ export const Trending = async () => {
         {trendingProducts.map((product) => (
           <TrendingCard
             key={product.id}
+            id={product.id}
             image={product.imgUrl}
             title={product.title}
             price={product.price}
