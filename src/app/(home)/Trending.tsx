@@ -12,7 +12,7 @@ export const Trending = async () => {
 
   return (
     <div className="home__trending mb-16">
-      <SectionHeading>Trending</SectionHeading>
+      <SectionHeading id="trending">Trending</SectionHeading>
       {!trendingProducts.length && (
         <EmptyStateText>No trending products to show</EmptyStateText>
       )}

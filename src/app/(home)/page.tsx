@@ -5,13 +5,19 @@ import { NewCategoryForm } from "~/components/Forms/NewCategoryForm"
 import { NewProductForm } from "~/components/Forms/NewProductForm"
 import { DottedSeperator } from "~/components/Seperators/DottedSeperator"
 
-const HomePage = async () => {
+interface HomePageProps {
+  searchParams?: { categoryId?: string }
+}
+
+const HomePage = async ({ searchParams }: HomePageProps) => {
+  const categoryId = searchParams?.categoryId
   return (
     <div className="page__home">
       <Hero />
       <DottedSeperator className="mb-8" />
       <Trending />
-      <LatestProducts />
+      <LatestProducts categoryId={categoryId} />
+
       <NewProductForm />
       <NewCategoryForm />
     </div>

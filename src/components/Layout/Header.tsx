@@ -6,16 +6,18 @@ import { NewProductBtn } from "~/components/Buttons/NewProductBtn"
 export const Header = () => {
   return (
     <header className="layout__header flex flex-col sm:flex-row justify-between items-center mb-4">
-      <h1 className="text-4xl sm:text-xl font-bold flex items-center mb-6 sm:mb-0">
-        <Image
-          alt="Banner lol"
-          className="w-[60px] h-[60px] transition-transform duration-300 ease-in-out hover:scale-110 object-cover"
-          src="/images/logo.jpg"
-          width={200}
-          height={200}
-        />
-        BilluBazar
-      </h1>
+      <a href="/">
+        <h1 className="text-4xl sm:text-xl font-bold flex items-center mb-6 sm:mb-0">
+          <Image
+            alt="Banner lol"
+            className="w-[60px] h-[60px] transition-transform duration-300 ease-in-out hover:scale-110 object-cover"
+            src="/images/logo.jpg"
+            width={200}
+            height={200}
+          />
+          BilluBazar
+        </h1>
+      </a>
       <div>
         <SignedOut>
           <SignInButton mode="modal">

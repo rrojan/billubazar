@@ -7,6 +7,7 @@ export const CategoryList = async () => {
 
   const db = DBClient.getInstance()
   const categories = await db.category.findMany({
+    orderBy: { title: "asc" },
     include: {
       _count: {
         select: { Product: true },
@@ -21,6 +22,7 @@ export const CategoryList = async () => {
       )}
       {categories.map((category) => (
         <CategoryBtn
+          id={category.id}
           key={category.id}
           title={category.title}
           count={category._count.Product}
