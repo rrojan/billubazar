@@ -6,6 +6,7 @@ import { ModalProvider } from "~/components/Context/ModalContext"
 import { Header } from "~/components/Layout/Header"
 import { Sidebar } from "~/components/Layout/Sidebar"
 import "./globals.css"
+import { Footer } from "~/components/Layout/Footer"
 
 export const metadata: Metadata = {
   title: "BilluBazar - Home",
@@ -49,6 +50,7 @@ export default function RootLayout({
                   <hr className="mb-16" />
                   {/* Inject layout children */}
                   <main>{children}</main>
+                  <Footer />
                 </div>
               </div>
             </div>
